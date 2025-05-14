@@ -21,7 +21,6 @@ resource "aws_macie2_organization_admin_account" "this" {
   admin_account_id = var.settings.admin_account_id
 }
 
-
 resource "aws_macie2_findings_filter" "finding_filter" {
   for_each    = try(var.settings.finding_filters, {})
   depends_on  = [aws_macie2_account.this]
